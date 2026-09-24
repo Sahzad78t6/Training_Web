@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our Menu | Restaurant</title>
+    <title>Our Menu | Creamy Creation</title>
 
     <style>
         * {
@@ -14,308 +14,525 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #faf8f4;
-            color: #222;
+            font-family: Arial, sans-serif;
+            background-color: #fcf9f5;
+            color: #2b1a12;
         }
 
         header {
-            background: #111;
-            color: white;
-            padding: 20px 8%;
+            height: 78px;
+            background-color: #211710;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #f3a21b;
+        }
+
+        .logo h2 {
+            color: white;
+            font-size: 22px;
+        }
+
+        .logo p {
+            color: #d7bda8;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
         nav a {
-            color: white;
+            color: #eee;
             text-decoration: none;
-            margin-left: 30px;
             font-size: 15px;
         }
 
         nav a:hover {
-            color: #d89b4a;
+            color: #f59e0b;
+        }
+
+        nav .active {
+            border-bottom: 2px solid #e85d04;
+            padding-bottom: 8px;
+        }
+
+        .order {
+            background-color: #ed6a05;
+            padding: 11px 22px;
+            border-radius: 25px;
+            color: white !important;
         }
 
         .hero {
-            height: 300px;
-            background:
-                linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .55)),
-                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4") center/cover;
+            height: 340px;
+            background-image:
+                linear-gradient(rgba(30, 15, 8, .72), rgba(30, 15, 8, .72)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+            background-size: cover;
+            background-position: center;
 
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
             color: white;
         }
 
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            border: 1px solid #a9917e;
+            background-color: rgba(255, 255, 255, .12);
+            padding: 8px 20px;
+            border-radius: 25px;
+            color: #f4d5b5;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
         .hero h1 {
-            font-size: 55px;
-            margin-bottom: 10px;
+            font-size: 50px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #e86b16;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 17px;
             color: #eee;
+            line-height: 1.6;
         }
 
         .categories {
-            background: white;
-            padding: 20px 8%;
+            background-color: #fff;
+            padding: 12px 20px;
             display: flex;
             justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            border-bottom: 1px solid #ddd;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 78px;
+            z-index: 5;
         }
 
         .categories a {
             text-decoration: none;
-            color: #333;
-            padding: 10px 20px;
-            border: 1px solid #ddd;
+            color: #69584d;
+            background-color: white;
+            border: 1px solid #e8ded6;
+            padding: 10px 18px;
             border-radius: 25px;
             font-size: 14px;
         }
 
         .categories a:hover {
-            background: #111;
+            background-color: #ed6a05;
             color: white;
         }
 
         .menu {
-            width: 84%;
+            width: 85%;
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 55px auto;
         }
 
-        .section-title {
+        .section {
+            margin-bottom: 75px;
+            scroll-margin-top: 150px;
+        }
+
+        .heading {
             text-align: center;
             margin-bottom: 35px;
         }
 
-        .section-title h2 {
-            font-size: 36px;
-            margin-bottom: 8px;
+        .heading small {
+            color: #e85d04;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
 
-        .section-title p {
-            color: #777;
+        .heading h2 {
+            font-size: 34px;
+            margin: 8px 0;
         }
 
-        .menu-grid {
+        .heading h2::before {
+            content: "— ";
+            color: #e85d04;
+        }
+
+        .heading h2::after {
+            content: " —";
+            color: #e85d04;
+        }
+
+        .heading p {
+            color: #796c63;
+            font-size: 15px;
+        }
+
+        .special-items {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
         }
 
-        .menu-card {
-            background: white;
-            padding: 22px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            border: 1px solid #eee;
+        .special-card {
+            background-color: white;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #eadfd6;
+            box-shadow: 0 5px 18px rgba(60, 35, 20, .08);
+        }
+
+        .special-card:hover {
+            transform: translateY(-5px);
             transition: .3s;
         }
 
-        .menu-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+        .special-image {
+            height: 220px;
+            position: relative;
         }
 
-        .food-info {
-            flex: 1;
+        .special-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .food-title {
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #ed6508;
+            color: white;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .special-content {
+            padding: 20px;
+        }
+
+        .special-title {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
+            gap: 10px;
         }
 
-        .food-title h3 {
+        .special-title h3 {
             font-size: 19px;
         }
 
-        .veg {
-            width: 14px;
-            height: 14px;
+        .food-type {
+            width: 15px;
+            height: 15px;
             border: 2px solid green;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
+            display: inline-block;
+            position: relative;
+            flex-shrink: 0;
         }
 
-        .veg::after {
+        .food-type::after {
             content: "";
             width: 6px;
             height: 6px;
-            background: green;
+            background-color: green;
             border-radius: 50%;
+            position: absolute;
+            top: 2.5px;
+            left: 2.5px;
         }
 
         .nonveg {
-            width: 14px;
-            height: 14px;
-            border: 2px solid #b21f1f;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
+            border-color: red;
         }
 
         .nonveg::after {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background: #b21f1f;
-            border-radius: 50%;
+            background-color: red;
         }
 
-        .description {
-            color: #777;
+        .special-content p {
+            color: #776b63;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 12px 0 18px;
+        }
+
+        .special-bottom {
+            border-top: 1px dashed #ddd;
+            padding-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tag {
+            background-color: #fff3c9;
+            color: #b66a00;
+            padding: 6px 11px;
+            border-radius: 15px;
+            font-size: 11px;
+        }
+
+        .special-price {
+            color: #d84e0b;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .item {
+            background-color: white;
+            border: 1px solid #e8ded6;
+            border-radius: 14px;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 3px 12px rgba(50, 30, 20, .04);
+        }
+
+        .item:hover {
+            box-shadow: 0 7px 18px rgba(50, 30, 20, .09);
+            transition: .3s;
+        }
+
+        .item h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .item p {
+            color: #766a62;
             font-size: 14px;
             line-height: 1.5;
         }
 
         .price {
-            font-size: 18px;
+            color: #d8500b;
+            background-color: #fff2e8;
+            border: 1px solid #f4d6c0;
+            border-radius: 22px;
+            padding: 6px 13px;
             font-weight: bold;
             white-space: nowrap;
         }
 
-        .featured {
-            margin-bottom: 70px;
+        .banner {
+            background-color: #24150e;
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+            margin: 60px 0;
+            text-align: center;
         }
 
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .featured-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #eee;
-        }
-
-        .featured-card img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-        }
-
-        .featured-content {
-            padding: 18px;
-        }
-
-        .featured-content h3 {
+        .banner h2 {
             margin-bottom: 8px;
+            font-size: 25px;
         }
 
-        .featured-content p {
-            color: #777;
-            font-size: 14px;
-            line-height: 1.5;
+        .banner p {
+            color: #d8cbc2;
+            margin-bottom: 18px;
         }
 
-        .featured-price {
-            margin-top: 12px;
-            font-weight: bold;
-            font-size: 18px;
+        .banner a {
+            display: inline-block;
+            background-color: #ed6508;
+            color: white;
+            text-decoration: none;
+            padding: 11px 25px;
+            border-radius: 25px;
         }
 
         footer {
-            background: #111;
+            background-color: #120b07;
             color: white;
-            text-align: center;
-            padding: 35px 20px;
-            margin-top: 80px;
+            padding: 55px 10% 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
         }
 
         footer h3 {
-            margin-bottom: 10px;
+            color: #f5dfbd;
+            margin-bottom: 15px;
         }
 
         footer p {
-            color: #aaa;
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer li a {
+            color: #ddd;
+            text-decoration: none;
             font-size: 14px;
         }
 
-        @media (max-width: 768px) {
+        footer li a:hover {
+            color: #f5a623;
+        }
+
+        .copyright {
+            border-top: 1px solid #35251d;
+            padding-top: 20px;
+            color: #8f8178;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .copyright a {
+            color: #f5a623;
+            text-decoration: none;
+        }
+
+        @media (max-width: 800px) {
 
             header {
-                padding: 18px 5%;
+                height: auto;
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 15px;
             }
 
             nav {
-                display: none;
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .categories {
+                top: 105px;
+                overflow-x: auto;
+                justify-content: flex-start;
             }
 
             .hero {
-                height: 250px;
+                height: 280px;
             }
 
             .hero h1 {
-                font-size: 40px;
+                font-size: 38px;
+            }
+
+            .special-items {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .copyright {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .logo h2 {
+                font-size: 19px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 14px;
             }
 
             .menu {
                 width: 92%;
             }
 
-            .menu-grid {
-                grid-template-columns: 1fr;
+            .heading h2 {
+                font-size: 28px;
             }
 
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .categories {
-                justify-content: flex-start;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-            }
-
-            .categories a {
-                white-space: nowrap;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .menu-card {
-                padding: 16px;
-            }
-
-            .food-title h3 {
-                font-size: 16px;
-            }
-
-            .description {
-                font-size: 13px;
-            }
-
-            .price {
-                font-size: 16px;
+            .item {
+                padding: 17px;
             }
         }
     </style>
@@ -324,158 +541,231 @@
 <body>
 
     <header>
-        <div class="logo">OTHOZENIC</div>
+
+        <div class="logo">
+            <img src="logo.png" alt="Creamy Creation">
+
+            <div>
+                <h2>Creamy Creation</h2>
+                <p>ARTISAN BAKES & DINING</p>
+            </div>
+        </div>
 
         <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Menu</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="index.html#menu" class="order">Order Now</a>
         </nav>
+
     </header>
 
+
     <section class="hero">
-        <div>
-            <h1>Our Menu</h1>
-            <p>Fresh ingredients. Authentic flavours. Memorable food.</p>
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                ✨ HANDCRAFTED FLAVORS & GOURMET DELIGHTS
+            </div>
+
+            <h1>Our Exquisite <span>Menu</span></h1>
+
+            <p>
+                Fresh ingredients, traditional recipes, and authentic
+                culinary passion in every single bite.
+            </p>
+
         </div>
+
     </section>
 
+
     <div class="categories">
-        <a href="#starters">Starters</a>
-        <a href="#maincourse">Main Course</a>
-        <a href="#biryani">Biryani</a>
-        <a href="#pizza">Pizza</a>
-        <a href="#desserts">Desserts</a>
-        <a href="#drinks">Drinks</a>
+
+        <a href="#specials">⭐ Chef's Special</a>
+        <a href="#starters">🥗 Starters</a>
+        <a href="#maincourse">🍲 Main Course</a>
+        <a href="#biryani">🍚 Biryani</a>
+        <a href="#pizza">🍕 Pizza</a>
+        <a href="#desserts">🍰 Desserts</a>
+        <a href="#drinks">🍹 Drinks</a>
+
     </div>
+
 
     <main class="menu">
 
-        <section class="featured">
+        <section class="section" id="specials">
 
-            <div class="section-title">
+            <div class="heading">
+                <small>SIGNATURE SELECTIONS</small>
                 <h2>Chef's Special</h2>
-                <p>Our most loved dishes</p>
+                <p>Hand-picked dishes most loved by our guests</p>
             </div>
 
-            <div class="featured-grid">
+            <div class="special-items">
 
-                <div class="featured-card">
-                    <img
-                        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAlAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgMEAAIHAQj/xAA+EAACAQIEBAQDBQcEAQUBAAABAgMEEQAFEiETMUFRBiJhcRQygUJSkaHBBxUjsdHh8CQzYvGCJUNyc9IW/8QAGQEAAgMBAAAAAAAAAAAAAAAAAgMBBAUA/8QAKxEAAgICAgEDAwIHAAAAAAAAAQIAEQMhBBIxEyJBMlFhcbEFFCNCgZGh/9oADAMBAAIRAxEAPwCSsqaelVkprM3Wx2wLIeoC08a7yn22HP8ATDI/g7MY24i8N4uzeXHtH4cmpq0TVkkalvLGgb68/wBMZT2PM0FbFixkYzuDIPD1I0eh6co1rak5/XA/MsgqKBONGeND94CxX3x0KmghV+ET/Ftq026YlmpY2U+QWYWZTyIwJAeIx5nxmI/h6sd4WpJSTwvOhJ6dRgjM10JXcd7YrLl4oM8mVf8AbCsRb7pF7YnrApH8NLC1zc41eE59PqfiRzApYOPmJ/iMM6OATa+4wj1cFpGIBv6Y6DmUIcMML1VQC/Xlg8p3EKsVRAb7Y2+Gt0GDjUOlASDtvjHo15bEWvt0wvvJrdQVBDdhff3wUo4tL3PLYDFumon4YnsvlFhieGG5Jc7nqOuJDbnVGjw8dRhiJF2Omwx1mihWOjjVPlAsPbHJ/DQRcypVJBvIv0x17LDxaCE9bWPoR/1g3N1IAoGeiO/THupUR5JTw4o73ZjsAMTabct/S+FnNIYs2zoUOY1clPSBf4EYsElbrqviIJMIP4iyxUDJPrU/aQeUntiCDxXlkxYKZb3tYx8/bFTOIMvilFKY+Gsdgl/t+1sW6TwrGp+J8o2uBJsBhfZvtDUCrMuQ5zI6Xp6CRkG1wCd/pjMW6YU8cQAVSv2d+mMwyDYg7NnWPLpTxY123difKMc2zWqpqpxpqjULEDwx0uOdu3PHTZIY5VMbqtj0O+AH/wDE+HoRdaGaR2Yc6h/L7b8sVO1jdSu+NmIqb+FY6o+HqNqghZWF/NuQtzb8rYKuLj623xFUT0+V0ippbhoulFiS+kDkoAwAz/xVR5PTN5uJVH5YlNyPfFcgA6l3HjZgBKPjHMEodQWwnqAsajrpvcnETFWiFzbVtf0wg1ldUZpVvV1LlpC1hvew7Yc0J4SjUeQxe4fzC5IoCWanLI3jUxkgfews1sKxSHRJEwv9/ng67O0XC1nT92+2FCsymeCdmjlZ4wdg5vt2w3OpK6lPKHZaWTa04jAlLW2Gm9sQuFd1RAu/Yc8azuUhjLAK19zjyiBNTGu5WRt2GM9MTo+zco4cb4847G5calaOPU/IbEA4sSU0SRxNGri/zahti7VUirEbu1ugviMGUxrG7EgDl0xeVTNYnUt5eUp5I3PkCkN3vbHT/Ddeszyw38rfxI/UG1/89ccmYsi32v7YNeG83eNI9DEVFK5K7817YLJoAzsfutZ1hri5wMzOCGanlWaONgyEHUga3qL9cXstrYc0olqYDcn516qcQZjH5WHpgrFRZBGojz/6SpDiRmnhXXGtrs3b2wVzauzqWKJNR0OoYqOvv3x5PSzQVkmb0rwl4Bd0k38oW3I9MeU+dtmWdQRAJGJDeVZGL2FvsC2wwsgnxOXzuRxZvmrILRRADb/b/vjMOTfuqI6JJolYdNYGMwHV/vG9k+054P2gZbfV8JKGAsPMf/zirU/tHhK2paFnuLgljuO/IemEqsZ0kKoy2LEAjff029vzxUqOJ8ZAEkl4e4dQbLcDa/ffFFi10ZfXDiqwsO5p4vzmvVo43FLE99o7jV723/PCrUajKGdizlvnY3PsMT1UqtAsZYgDUNz37W5dcDJJZVgVUBJUWLk45UZjqGzrjFS/lo1VEYbnfWeu/b+WHqEgRrrBVrfjhO8L5TV5oS9HBJIQ/mZRsPryx0WiyCcBTmNYoa/yR3kYehPIfS+NXEoRamXlcub+INI3F/xx5VRQhBpcPcb7csNCZRQix+HeQ/elkt+QxOlHRpuKWjA/+oMfzwRYGLE5nLTx8Q67FW6dsb0OXUwqUkWRiwOwJ2GOnjhoP4ZjQf8ACNRb8BjXiLbeUe9r4Chc4qDuI9bEzRF73sdjfFVQet/oMP7wU89kmhpJb/ehW5+vP88SR+DoanTIkXwo7hjY/Q3xOhJuc5qPLG2AkeYtQ1iuG0i9ieYHvjqOc/s/rKmQtR5hSM9tklUr+Yv/ACxy7xXkGaZJNwsypHiMm0b31I59CNscSrCpKkqbjh4e8STZbMKmmuY7/wAaEm9v7euOm5dmNFnlOJKR7t9qO+4/t64+aslzZ6d1gnlKOptFNfYf8W9MNuXZrPSVCzUspp6kG4QGyt7Hpf8ADFYEoZYIDi51TOaAaSdO9u2F2GhkMhHm22HmPLFnK/HUVSops5iKufLrCi5+nI/TDBTR0ldc0E0cg6hWF/wxJe/ED068wTHS6FsgKjsBjMMS5ZIButvrjMDTyOqz5k/e1apsXDqd98eLX1VQdJuWN9IQcji3RZVUZjMtHQUck1Q5JRUFzYfp646J4b/ZHmB4VTnFVDQsNzDGeI/1YeUfS+GlMY2RO9R/vOa5VRZlmFclNQwyy1Tjew2A7k8gPU46XlHgzLqNEfNdNbUgXaFDaFD21bFvyGHE+F1ySkaPLYVeE+aVo/8AckPdzzPtyGAr1qSS8BQNRRio+72v+X44VkzDGIaockuCWKGEQxhIqdBZIYUCIo7ADEa5iDIkcYvqNgB17/XrgO8ytVETEtDOmmJbbo43O3pb88FPC9XN8RM1NRM1NbW7KbBGUWvY73IHTFNudehLQ4lDsZBmVbURaYn1ayQ6spOgLvsT39MVlmzerYrTwbDcnUADva4vzwc8QwmrpYKkJPpQXMPBOo37W29MVMuplUiSvSMxzLaGE6rr5rAsot5fQ3xC8kqp7EyqceRswAX2yRqaGqoo4o6pJJTq1SJK2zLa4uPKBvijW5NXUTpO+YU1PAEBYyNqNuwUb3/I4oV8EU9VK8B+DmppRIyxiys3I2t0Nhe/PbAutyOvaqFVS1hlDyLxYFUmOwIOk9tjb1wleUSavc0v5UVqOv7OjLmEtZWVgBWBxFEp3Abck/hb8Th0knYklt8JXgVTQVNXDI0aCuImji1WKMt7gA8hYi1/unDezr8p2PY4nmZMrIGUyl0VHIM3Mol8um/oRtjJaODMqOWhzSmjqaRwDonUMCPr1HTEaFF+Y2v23xapo9AdrudRvduntgf4ecxa2i83WtThvjX9n9JDmE9Plcnwkw86Rzt/BlWw+Vuan0O1weXPCOKmuySoOX5vTSDT9iT5lHdT1GO4ftKqI4s0y9dIPFhcOpHMAi38zgLW5LTZ5liw18ZlhUEpIN5afbmnp3HXGuG7EgxQsC4jUdctRETTTJPD1jk3t+owRp694GBSSaA9LnUPoRuPxwo+JPDdd4ZrVUuXgk81PWRX0yDt6N3GIaTxBWQeWcCZe/I4g468Qxk+86jT+Ms5iiCR5mGUci0hJ/NSfzxmOfr4kpCoMlPIG6+QH9cZgerQuy/idt/ZdkKZN4fTMGS9ZXqG1NuUi+yo7X5/X0w4Bz3xpFEkEMUCCyxQoij0AtjQC5OM3n539TqPidhQFblhXKtsBuLYR/EOVz0ecceip9VKVDIE20Xvcc++HRRcjAnxWJP9IYzYrqJBtYr1v9CcAtvibtH4j1yioJy7K6JDHPKwM6MWlF+TMLEAYJxTLThRFEkUS/LEBsfU+uBlJBBBxHiZwJTdeI1zYdj1GIK6qqBcRSBUFwPL5t+x5flhOOx+JcdbMYI8zeN+LNKHVtwFNgPS2Ia+vpKhgLRlyNRU35A/3wrzTSIyg3KkA3O9j7frjaR1qo0iinSKZ/Ipa2x9/wAMNOZnFDxA9FVNw0gymtq5eJTxRySq0c2ggFhsQfoQMay5cErkXLTw5YyLxXGll745Jn9XmiZunwVWySKpWTQLgsHI68+nTDrl2fNDTn4vMDUT6Rd3QqWP/ieX0wQwFlFsIvJlTC2zVyeu8O1cVdxONUrWVDnhyxO7oNPyFgBYc/Xr3wQ8P+OHapfLPFVC9PWQeV6qOMtE/qbbrf2tiOl8SvKOFLOpYiyqylfex6n8MVsyp6sttThoqmRNZQG0bAHzMAd9uvIYPHlbF42IWTF6o90e6bNcnlRZKeupXUi4tIBtitmvivKcqpJKh6gTBDbTCC+/bbl9cc6GR05nWcRxjhxhNCqGElj26D+mN8tpoailaiaFY0+IMYhvszWbbf1GDPONe0RQ4Cg+4wbnWez+IMzFbJAQqsojsTaw6enPDFklfEY+EGKurcjiVMrpKKhkjF0ndQHEtyo72t0tgDVyUtMgejlVpIWCHTcAqff64LDnYGzJyYVI1DucUlJWUclPVwiaimFpkHzRnpIp6W545ZmHg+bLq6aGpLSU4s0FQvKRTyPofTD/AE9c2lWIO429Ri21O1ZRS0ccgUOjGlZxsj2+Q+ht+foMX1ydvEpHGVnJGyBQTplIHqt8ZgxJVGNzHNTvxkOmQFiNLDmMZgrMCp9EZdMuY5ZS1cbDU0YBPr9r87490y7qVXV3Bwh+DfElPlEklHmEjLRyzWilcbRuRc/+J/Ln1x0hWjdQ6OjKRcMG2tis2LDyPc3mSQ+PUhhg0AGRtTH6DCp4gmGZVrQU9fDFLApUxFbsepse9sW/FXidMuj+Gy/+PWSMEBXdYr33b12O2F2iytIKeWsnK/EyKdGvckEjUx9edvf1xW5IVE9PH4lrjISe7SzWgQKjwpqcWW5+yvbbl0xQSeoqKdgypNPe2tb37DrbGniMa8sZ2mkh4RVjYfOTawPvjfw6z0tFTSVcQYVPOxuG83O/SxxSVCVmiWCyGK8rCQyR6fMt3PKy+a4HoR+OBfAmlqNMh0fAuWZgDpJX5QPc7nrbBvPJaXK6yJY1MQkqCagq4YsLbnSDcdr+mIvjGqMpilqqfQ8rsXjBPlUHY7cr3+tsO0BqB9XmI2YU2Z1FXNUU8Lzy8U7pHcE31cufK2CcNBU1FSKdIiptdiRbSNr/AIXwy5ZUR02VyV6uitVSBYF1WZ2Uhf67+uDFXlzp/rZZHdLHVExAsCN1Pud/oMRkNgACVs3FTMwLnxKceX0ISKGOCCUKLGS4LK/Pn1GPKKv+AaOA1dyp0Mdjy2KsPf1xrmtfRvl4pqUKCsYIDSlGitsCw7dNud7YDZll/wC6YKGZpQk05bioQALtvq3vvbp29cQBW7lkMD7KhmuJgrRWZVJDLE5ZpKc+R0FrbL1540SYidOHTRcQXmmdmH8O/wBkE8tudu5xVyfKFzEw1b1LK0U2lRJFfaw8yki47Wv1wSqaSTKaSSkljjkSRi4aYfPY9SOZPP2wYxi7nd/iBM8zaVl+GWVVjeMaBpA1E9bc79MVPDdIKVycxp2ClCGinXbVf5hfme1sUc5r5Za3iPEssi3UspNzvsT/AGxJSVjBVeWPjAX2lbUBjnfoInJmTGLbUMypTJlIrNdwrMirYqQb9e4O344tZPaeMpqK6x5T909CMVKDMI62F45dSIhGqy3AB5Ag48ymaNJn0CZUMmiMyDSSRcnbtg+Lk924OZUdOyGTZx4Lo8+rDmDSCCZ1CzKnIuNif5YzB8tUobwOFVtz5b74zGt1BmbcTaOsV6Nmnhj0QTlUkdLsAdtXt/TBCISM0dqioaaPUAsdyhPcqOtvpghwVyegZonaRpDqJOkBVB+XYWA/rga9dUvVNNT1MFPKrWBEXlbfa++4Iv2xjIruSVmll5GHDS5DuDMznoqOupzWUwNQ58rpe5N7AFRz5++GgNWNS08E2tJJTrMgUqEQg7N929gLHffAPJKSP4qoWpgSWrBtBM51BDzsPb+nbBfMqeaKdFDzyNUyBGgVr6RzBJPyi2/1xwT4jwwYAjxIK7M6bX8HWRmWM2RiByb9cBkmSkySOiWpWGogkklSScgBwSSFBPW1hY9sQ5wywTUyi9gzFyx5hRfn/nPFY5hRz0rcSIMXU6nc76uw7AfniU0JJBPiE4ozm0E1RmPEqKyRAqiIhAQB10282PMsmpqrMmfMo6lJ3JDAsYwkQAsHv05m3MknENFWxVFTHQ+H8vNMICjzPTICp3sb38t7d8GtaRtH8RGDKAyxVEc9yv47H8Tb64EnrdyHYKvYmqhl6amhqKeeoow4o0IgWE/MbkgBRe5/z2o5nXGSWOfM7wRiIl1Q+QSHci5+awsP+8D28Q02VzNwwjTSCzM5LsfoLFj7/hjeHKMzzXM4ps+pKqKlaMvFvycEFbqOQ9P745WDarUzl5hyNWL/AHLlBlprJWetpGahkVgIo2AMZPIve1jb8D0wWpMmjFMYp6sVSwtrLrGouBst73u3cjBKKjpo6WokQoCfM1rAFj/n0wFyrM5aOrrKWodViDfwV0ELpudwb+YdL+mHqq9ezSyLGlloZpRyRaYVnpHRy3DNgHPLe3S/bCr4xrZq4wyniAvHqhjQamVuTL9CMSZvG1TmnGo3bq3CbYMew9euK3wVHNQxrJVtHmcLcYmMa1t9peR357d8LdgW1HKtDcGVWXJFl8DsxVwhLq7Wd358v82xVgdghRyRtuh64baiCA5RUKY5opdI1PUwDVudzuLgemAv7sNeHWlIU0gIcFizsLAhgOZB5DbFdjfmI5fF9Vey+RK1DWNSakSnjljk+cuCdu2x/PBmHLRBHSyDjE1EmqMl9Rsdtv8AiNt8Av3bmJdkWjlMgtrXtflg4ZZ6DLtEWmKsRFi87a7L1KjkCdr9NsEl3KfCXMrMrfTUa6e3BU2LAgEEY8xtRAmlj2UWUC2r0x7jdW6EBhuJFBnGr4l45YGgErKsak3O58zX/lirUV/8diNC2RbA3tcn32Av+uI6HI5ctoaisMy2c3ZNm1WPzC3/AMjixlIps7yyejHkqKUmWCYfa6ED0Jxk9v7R4iuTxmy8g38xmyvLqWkoYnWpaprGA0ogAVW5k3P1xHW1cFDHG9RKZXmfdpGvp3tYbcgCRgPG1bTU4leIvTsqaZIjZVA5g3PPnftbAvPapq+oWSGZXijXSovtpFht+F8cSbm1hxqo6j4m/iXMEMs9JHAZEl0ecLsVUhtNvWwB9L4lymhpRQVVPPQoIZ3uwL7wjvfltfb3xDlbfGtIY5wZpHMgUr5Y1W4ueh5fngwK+KqhipKpJJGqF0SlEMYlW2zqfp0/TAM1Co4LZue5xakrVnjgMCcDS6tYcULbTbbmbkf9YWarM5ayoZGqkRRtqO45/Ko6nB/N8uq6mFeJU0NPTqrJFI0xtbqDf7V9vrgDQZdokWERLNUuDuD5F925AYhU7baUMuA8jJT6Rf8Aphjw3kMpyybMZXCu+kxlPM+m+5btsenQ+mHmStko4jSUsSzyRAjXIxsGPQDmfbCxT18uU0S00k8Msh0RhrckPMkHqBe2CCVGmEKCSoa4Ym9+xOBbKRLi4VqhCYjqKSb4WWrEllB13Bd/fACueRmjdVb4Yyagyjdbg3B6WJtv0se+A9Xl802aGSkrniMrAMZZDpUdf+vaxGGOE8Lh09XLEGjPCZrWUnufpbBaI0ZIseYEzjMEy/4aKiCx6pNyedz/ACtzxXpcwzGCqlV6yRIQ5ULDGGSTnubje/Pn1tih4mmgjuURmeJ/4TblXI+Zj3Fthg54UjUZXNm2aM0lJTWCozbO9wNxy5kD3w1MZYfvBLBdy9SQ5nnMMEwSRVjZXa8WlZbe5/TBH9yVMNBUGKm4UrXeR1AZgFHlCgewOIDXZhUwCb4gFm86QRnQEA6Hv+uN6Cuq4l0rXFXRjJKZnuLMNl35m/QdMAfR/P6wv6n4mmSZWqUks09a4qZGUuxAHnUX078wL74B5noTMnjiy1JbXbiguDGCev1PthzEEWa0hqilPJmCKdXBYhWF+dvb3wKo/EFPTSGizGNHdZWVrOANG5DFfW31xIx9WB+IssSDDtAg+GS9rj72PcXaeSmlhWSZAhYXCgch0xmNlSKEyTdznlWkVJXwZNW1i8OWY6Io2uwQm+lriwHtidsiSlr2ly64gckrpBVVUH5Sem+4PbF7xtleuKLOaJFeenFxZb3X0/nhfhrq0cKoeZKallXyQMpmaW3NrC1sZPIxlG1NPjsHX8xipREB8LFM4dQ2ktPtY9hysMLtXlfGrJIKqoDSSNp1LZb77HsR3HXBSGSGpo1LTyh4CZRKEWzg/ZIvewvywJywVVXFNLUVs8lJT1CCNAwBLG55gdBhIN7ljrQhvKo4KCnq4eHEsavHTIUj1bkAtf03xdPDqYryU0cbluDHztuCdu2IKKNP3elPC7FTGzJPw9Klr7H03t72wT8PIFpFFapNQ7FGLuXF9NvphTWTJsKLi80FVlrVcy5XLWQPMswjWxBc/a/kLAdL4rZbmMskU0sVMlHAQwLQi5V2tcm+5sCTfDPVR1C1s6yR6aSUcPysAQum1xvhNlSWGoqvDrFXqlJCpbRrXmD632P44ahYrqQaMH/AThKppRUXpiApZv8AdubXuRv/AD3GCmU5tEIzC68QqbbG59PfE2cZfJHlElEruKmoK3LCw2A2F+X9cLuV+HKt0+JFSKcBwilBqJI+e/8AnPBe1h5kixDxqJKx5lpI0vGms3O9v86YqtWgwyBYxNJItlMylQDfbr3HX9cQ1zVVJls8FHAHqdQ1Ox0l0ueZO21wOeMjo8zWlhFbTrHDVyKLIQX26EjYA39cSuMVdyC1mqlako5qeUJVN/vK0jiRt79LLfrfDvSZTU1nhfLaKOmliCSCWdWGnic9hf1IOLTxUuQwfEsiz17rZdR3sO3ZR6c8WMnzmTMZJqOpqdDSWaF4fLYdsX8SotofJldiStqPEQ80ybxLldTPUNFKKLXcCnbU1j6+mGGGnfL6UtRwmqSepkJGsWSKwsbnmeu+GGllzeirPh8wqaWSlLNYz3UyAnYBuQI5WN73HLGmfU1RTtFFl0UTJNcpG9gNXp9Bt64VkwIyn0xRHxIxuS2zBvhSSqhzSOmmfiI3lQ3ueRJuOh2xXzDIlrfFqFNPDjZhJtzGzLv2Go/lgtkeTy5Y7ZvmMpWOGJ9MbXub23P0BHrfGeGJGqI67OKo6Ip2Lrq6KP6/phvGxVh98HNkskr+kMz1lLSFI5mVSVBAK9MeYVpp5sxnlqTHcM3lAlK2GMxJ5G5W9Iwn4ZYzRVNFL5oYraR6HmMaZxQUkC00UUCKsMnDjttpBAvjMZhHM+hY3jfWYA8UytlMjCj24s7BtW+1xsMAvDVTIlUtOtgut5CepIDgX9MZjMUwJopsbjUx+E88OwkKsUJ8oPoOm2L8VOr5vR2Z1B1uwVrBigsL/jjMZhXzOb6TIc9kK0LVNhxJFRG7Wub4s5dlcFRWPVys5lVPhgdtowdhe1+uMxmCxH3GDk+iUc2eR87p6JpCYggfcAm5v6emK0DyNBVq0jNwX0ITztjMZhT+TG4vpEF0NJFWUMYnBcMZZCCb7qNhv09MGcrpUzataOrZzHTMrRopsAbc8e4zF7gAE7g8jSmoWzXKKNo1rJUaWWDZOIdQGFlT/wClS1P/AL0DIY2vyBa1vbfGYzFvkgB1I8xfGNpuMWUZxVTK8M/DlTVp8632wTziYx09JIiqCtQhAA2xmMxoIBoyq4AcVF3xBVz5rWZfTVMjLDKfOsZtfzEfyxv4/qHocspqGltHA2xCjew6YzGYrZieh/zIygBgBA2WD/Sj3xmMxmM6TP/Z">
+                <div class="special-card">
 
-                    <div class="featured-content">
-                        <h3>Special Chicken Biryani</h3>
+                    <div class="special-image">
+                        <span class="badge">★ MOST LOVED</span>
 
-                        <p>
-                            Fragrant basmati rice cooked with tender chicken,
-                            aromatic spices and our signature masala.
-                        </p>
-
-                        <div class="featured-price">₹299</div>
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8" alt="Chicken Biryani">
                     </div>
-                </div>
 
-                <div class="featured-card">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+                    <div class="special-content">
 
-                    <div class="featured-content">
-                        <h3>Paneer Tikka</h3>
-
-                        <p>
-                            Soft paneer marinated with Indian spices and
-                            grilled to perfection.
-                        </p>
-
-                        <div class="featured-price">₹249</div>
-                    </div>
-                </div>
-
-                <div class="featured-card">
-                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002">
-
-                    <div class="featured-content">
-                        <h3>Classic Pizza</h3>
-
-                        <p>
-                            Crispy base topped with mozzarella cheese,
-                            vegetables and special herbs.
-                        </p>
-
-                        <div class="featured-price">₹279</div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="starters">
-
-            <div class="section-title">
-                <h2>Starters</h2>
-                <p>Begin your meal with something delicious</p>
-            </div>
-
-            <div class="menu-grid">
-
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Paneer 65</h3>
+                        <div class="special-title">
+                            <h3>Special Chicken Biryani</h3>
+                            <span class="food-type nonveg"></span>
                         </div>
 
-                        <p class="description">
-                            Crispy paneer cubes tossed with spicy Indian
-                            masala and curry leaves.
+                        <p>
+                            Fragrant basmati rice layered with tender chicken,
+                            saffron, and our special spice blend.
+                        </p>
+
+                        <div class="special-bottom">
+                            <span class="tag">House Specialty</span>
+                            <span class="special-price">₹299</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="special-card">
+
+                    <div class="special-image">
+                        <span class="badge">★ CHEF'S CHOICE</span>
+
+                        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8" alt="Paneer Tikka">
+                    </div>
+
+                    <div class="special-content">
+
+                        <div class="special-title">
+                            <h3>Paneer Tikka</h3>
+                            <span class="food-type"></span>
+                        </div>
+
+                        <p>
+                            Soft paneer marinated with spices and grilled
+                            until perfectly cooked.
+                        </p>
+
+                        <div class="special-bottom">
+                            <span class="tag">Tandoori Fresh</span>
+                            <span class="special-price">₹249</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="special-card">
+
+                    <div class="special-image">
+                        <span class="badge">★ GOURMET</span>
+
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002" alt="Pizza">
+                    </div>
+
+                    <div class="special-content">
+
+                        <div class="special-title">
+                            <h3>Classic Pizza</h3>
+                            <span class="food-type"></span>
+                        </div>
+
+                        <p>
+                            Stone-baked pizza with tomato sauce, mozzarella
+                            cheese and fresh herbs.
+                        </p>
+
+                        <div class="special-bottom">
+                            <span class="tag">Stone Baked</span>
+                            <span class="special-price">₹279</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section" id="starters">
+
+            <div class="heading">
+                <small>APPETIZERS</small>
+                <h2>Starters</h2>
+                <p>Begin your meal with something tasty</p>
+            </div>
+
+            <div class="menu-items">
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Paneer 65
+                        </h3>
+                        <p>
+                            Crispy paneer pieces tossed with spicy masala
+                            and curry leaves.
                         </p>
                     </div>
 
                     <span class="price">₹189</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="nonveg"></span>
-                            <h3>Chicken 65</h3>
-                        </div>
 
-                        <p class="description">
-                            Crispy fried chicken marinated in aromatic
-                            spices.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Chicken 65
+                        </h3>
+                        <p>
+                            Crispy chicken pieces marinated with special
+                            Indian spices.
                         </p>
                     </div>
 
                     <span class="price">₹229</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Veg Manchurian</h3>
-                        </div>
 
-                        <p class="description">
-                            Crispy vegetable balls served with tangy
-                            Manchurian sauce.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Veg Manchurian
+                        </h3>
+                        <p>
+                            Crispy vegetable balls served with Manchurian
+                            sauce.
                         </p>
                     </div>
 
                     <span class="price">₹169</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="nonveg"></span>
-                            <h3>Chicken Wings</h3>
-                        </div>
 
-                        <p class="description">
-                            Juicy chicken wings tossed in our special
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Chicken Wings
+                        </h3>
+                        <p>
+                            Juicy chicken wings tossed with our special
                             spicy sauce.
                         </p>
                     </div>
@@ -484,71 +774,76 @@
                 </div>
 
             </div>
+
         </section>
 
-        <section id="maincourse" style="margin-top:80px;">
 
-            <div class="section-title">
+        <section class="section" id="maincourse">
+
+            <div class="heading">
+                <small>HEARTY & WHOLESOME</small>
                 <h2>Main Course</h2>
-                <p>Rich flavours for a satisfying meal</p>
+                <p>Delicious dishes for a complete meal</p>
             </div>
 
-            <div class="menu-grid">
+            <div class="menu-items">
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Paneer Butter Masala</h3>
-                        </div>
-
-                        <p class="description">
-                            Soft paneer cooked in a rich creamy tomato gravy.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Paneer Butter Masala
+                        </h3>
+                        <p>
+                            Soft paneer cooked in creamy tomato and
+                            butter gravy.
                         </p>
                     </div>
 
                     <span class="price">₹229</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="nonveg"></span>
-                            <h3>Butter Chicken</h3>
-                        </div>
 
-                        <p class="description">
-                            Tender chicken cooked in creamy tomato butter gravy.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Butter Chicken
+                        </h3>
+                        <p>
+                            Tender chicken cooked in rich and creamy
+                            tomato gravy.
                         </p>
                     </div>
 
                     <span class="price">₹289</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Dal Makhani</h3>
-                        </div>
 
-                        <p class="description">
-                            Slow cooked black lentils finished with butter and cream.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Dal Makhani
+                        </h3>
+                        <p>
+                            Slow cooked black dal with butter and cream.
                         </p>
                     </div>
 
                     <span class="price">₹179</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="nonveg"></span>
-                            <h3>Mutton Curry</h3>
-                        </div>
 
-                        <p class="description">
-                            Tender mutton cooked with traditional Indian spices.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Mutton Curry
+                        </h3>
+                        <p>
+                            Tender mutton cooked with traditional
+                            Indian spices.
                         </p>
                     </div>
 
@@ -556,71 +851,75 @@
                 </div>
 
             </div>
+
         </section>
 
-        <section id="biryani" style="margin-top:80px;">
 
-            <div class="section-title">
+        <section class="section" id="biryani">
+
+            <div class="heading">
+                <small>DUM COOKED ROYAL RICE</small>
                 <h2>Biryani</h2>
-                <p>Slow cooked aromatic rice delicacies</p>
+                <p>Aromatic rice cooked with traditional spices</p>
             </div>
 
-            <div class="menu-grid">
+            <div class="menu-items">
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Veg Biryani</h3>
-                        </div>
-
-                        <p class="description">
-                            Aromatic basmati rice cooked with fresh vegetables and spices.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Veg Dum Biryani
+                        </h3>
+                        <p>
+                            Basmati rice cooked with vegetables, mint
+                            and aromatic spices.
                         </p>
                     </div>
 
                     <span class="price">₹199</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="nonveg"></span>
-                            <h3>Chicken Biryani</h3>
-                        </div>
 
-                        <p class="description">
-                            Classic dum biryani with tender chicken and aromatic spices.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Chicken Biryani
+                        </h3>
+                        <p>
+                            Classic dum biryani prepared with tender
+                            chicken and spices.
                         </p>
                     </div>
 
                     <span class="price">₹279</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="nonveg"></span>
-                            <h3>Mutton Biryani</h3>
-                        </div>
 
-                        <p class="description">
-                            Slow cooked mutton with fragrant basmati rice and traditional spices.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Mutton Biryani
+                        </h3>
+                        <p>
+                            Slow cooked mutton with fragrant basmati rice.
                         </p>
                     </div>
 
                     <span class="price">₹349</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Paneer Biryani</h3>
-                        </div>
 
-                        <p class="description">
-                            Flavourful biryani prepared with soft paneer and aromatic rice.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Paneer Biryani
+                        </h3>
+                        <p>
+                            Aromatic rice prepared with soft paneer pieces.
                         </p>
                     </div>
 
@@ -628,107 +927,305 @@
                 </div>
 
             </div>
+
         </section>
 
-        <section id="desserts" style="margin-top:80px;">
 
-            <div class="section-title">
-                <h2>Desserts</h2>
-                <p>Finish your meal on a sweet note</p>
+        <section class="section" id="pizza">
+
+            <div class="heading">
+                <small>ARTISAN OVEN BAKES</small>
+                <h2>Pizza</h2>
+                <p>Freshly baked pizzas with tasty toppings</p>
             </div>
 
-            <div class="menu-grid">
+            <div class="menu-items">
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Gulab Jamun</h3>
-                        </div>
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Margherita Pizza
+                        </h3>
+                        <p>
+                            Tomato sauce, mozzarella cheese and fresh basil.
+                        </p>
+                    </div>
 
-                        <p class="description">
-                            Soft milk dumplings soaked in warm sugar syrup.
+                    <span class="price">₹239</span>
+                </div>
+
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Farmhouse Pizza
+                        </h3>
+                        <p>
+                            Fresh vegetables, mushrooms and mozzarella cheese.
+                        </p>
+                    </div>
+
+                    <span class="price">₹279</span>
+                </div>
+
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            BBQ Chicken Pizza
+                        </h3>
+                        <p>
+                            BBQ chicken with onions, peppers and cheese.
+                        </p>
+                    </div>
+
+                    <span class="price">₹319</span>
+                </div>
+
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type nonveg"></span>
+                            Chicken Supreme
+                        </h3>
+                        <p>
+                            Chicken, peppers, jalapenos and extra cheese.
+                        </p>
+                    </div>
+
+                    <span class="price">₹339</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="banner">
+
+            <h2>Freshly Made Every Day</h2>
+
+            <p>
+                We prepare our food using fresh ingredients and
+                traditional recipes.
+            </p>
+
+            <a href="index.html#menu">Order Online Now</a>
+
+        </div>
+
+
+        <section class="section" id="desserts">
+
+            <div class="heading">
+                <small>SWEET INDULGENCE</small>
+                <h2>Desserts</h2>
+                <p>Something sweet to finish your meal</p>
+            </div>
+
+            <div class="menu-items">
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Gulab Jamun
+                        </h3>
+                        <p>
+                            Soft gulab jamun served with warm sugar syrup.
                         </p>
                     </div>
 
                     <span class="price">₹99</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Chocolate Brownie</h3>
-                        </div>
 
-                        <p class="description">
-                            Warm chocolate brownie served with rich chocolate sauce.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Chocolate Brownie
+                        </h3>
+                        <p>
+                            Warm chocolate brownie with chocolate sauce.
                         </p>
                     </div>
 
                     <span class="price">₹149</span>
                 </div>
 
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Rasmalai
+                        </h3>
+                        <p>
+                            Soft rasmalai served with creamy milk.
+                        </p>
+                    </div>
+
+                    <span class="price">₹119</span>
+                </div>
+
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Red Velvet Pastry
+                        </h3>
+                        <p>
+                            Soft red velvet cake with cream cheese frosting.
+                        </p>
+                    </div>
+
+                    <span class="price">₹139</span>
+                </div>
+
             </div>
+
         </section>
 
-        <section id="drinks" style="margin-top:80px;">
 
-            <div class="section-title">
+        <section class="section" id="drinks">
+
+            <div class="heading">
+                <small>BEVERAGES</small>
                 <h2>Drinks</h2>
-                <p>Refreshing beverages</p>
+                <p>Refreshing drinks for every mood</p>
             </div>
 
-            <div class="menu-grid">
+            <div class="menu-items">
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Fresh Lime Soda</h3>
-                        </div>
-
-                        <p class="description">
-                            Refreshing lime soda with a hint of mint.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Fresh Lime Soda
+                        </h3>
+                        <p>
+                            Fresh lime juice with soda and mint.
                         </p>
                     </div>
 
                     <span class="price">₹79</span>
                 </div>
 
-                <div class="menu-card">
-                    <div class="food-info">
-                        <div class="food-title">
-                            <span class="veg"></span>
-                            <h3>Cold Coffee</h3>
-                        </div>
 
-                        <p class="description">
-                            Chilled creamy coffee topped with chocolate.
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Creamy Cold Coffee
+                        </h3>
+                        <p>
+                            Cold and creamy coffee topped with chocolate.
                         </p>
                     </div>
 
                     <span class="price">₹129</span>
                 </div>
 
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Mango Lassi
+                        </h3>
+                        <p>
+                            Sweet yogurt drink made with fresh mango.
+                        </p>
+                    </div>
+
+                    <span class="price">₹99</span>
+                </div>
+
+
+                <div class="item">
+                    <div>
+                        <h3>
+                            <span class="food-type"></span>
+                            Masala Chai
+                        </h3>
+                        <p>
+                            Hot tea prepared with ginger and Indian spices.
+                        </p>
+                    </div>
+
+                    <span class="price">₹49</span>
+                </div>
+
             </div>
+
         </section>
 
     </main>
 
+
     <footer>
-        <h3>Creamy Creation</h3>
 
-        <p>
-            Good food. Good mood. Good memories.
-        </p>
+        <div class="footer-content">
 
-        <p style="margin-top:12px;">
-            © 2026 Creamy Creation. All Rights Reserved.
-        </p>
+            <div>
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Creamy Creation">
+                    <h3>Creamy Creation</h3>
+                </div>
+
+                <p>
+                    Bringing you tasty food, fresh bakery items and
+                    traditional dishes made with care.
+                </p>
+            </div>
+
+
+            <div>
+                <h3>Quick Menu</h3>
+
+                <ul>
+                    <li><a href="#specials">Chef's Special</a></li>
+                    <li><a href="#starters">Starters</a></li>
+                    <li><a href="#maincourse">Main Course</a></li>
+                    <li><a href="#biryani">Biryani</a></li>
+                    <li><a href="#pizza">Pizza</a></li>
+                    <li><a href="#desserts">Desserts</a></li>
+                </ul>
+            </div>
+
+
+            <div>
+                <h3>Visit & Hours</h3>
+
+                <p><b>Open Daily:</b></p>
+                <p>11:00 AM - 11:00 PM</p>
+
+                <br>
+
+                <p><b>Contact & Orders:</b></p>
+                <p>Fresh & Quick Delivery</p>
+                <p>Dine-in & Takeaway Available</p>
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <span>© 2026 Creamy Creation. All Rights Reserved.</span>
+
+            <a href="#top">↑ Back to Top</a>
+
+        </div>
+
     </footer>
 
 </body>
 
 </html>
-```
